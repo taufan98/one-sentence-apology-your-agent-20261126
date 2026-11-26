@@ -29,6 +29,9 @@ def _check_line(text):
         _fail("apology line has leading or trailing whitespace")
     if text.count(".") != 1 or not text.endswith("."):
         _fail("apology line must be exactly one sentence")
+    lowered = text.lower()
+    if "sorry" not in lowered and "apolog" not in lowered:
+        _fail("apology line must actually apologise")
 
 
 def main():
